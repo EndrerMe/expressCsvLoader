@@ -1,12 +1,11 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const controllers = require('./controllers');
-const config = require('./config.json')
+const dbHepler = require('./core/helpers/db.helper');
 const app = express();
 const port = process.env.PORT || 8000;
 const corsOptions = {
@@ -15,17 +14,9 @@ const corsOptions = {
 
 async function start() {
     try {
-        await mongoose.connect(config.connectionUrl, (err, db) => {
-            if (err) {
-                console.log(err);
-                return;
-            }
-
-            console.log('Database is runnging!');
-        })
+        await dbHepler.connect();
 
         app.use(fileUpload());
-
         app.use(cors(corsOptions));
         app.use(controllers);
         app.use(cookieParser());
