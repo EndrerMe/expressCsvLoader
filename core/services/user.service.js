@@ -1,7 +1,6 @@
 const csv = require('csvtojson');
 const userRepository = require('./../repositories/user.repository');
 const { Parser  } = require('json2csv');
-const fs = require('fs');
 
 module.exports = class UserService {
     static async parseFile(file) {

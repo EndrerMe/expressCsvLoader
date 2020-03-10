@@ -7,8 +7,6 @@ module.exports = class DatabaseHelper {
             if (err) {
                 return;
             }
-    
-            console.log('Database is runnging!');
         })
     }
 }

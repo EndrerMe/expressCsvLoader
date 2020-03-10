@@ -13,22 +13,16 @@ const corsOptions = {
 }
 
 async function start() {
-    try {
-        await dbHepler.connect();
+    await dbHepler.connect();
 
-        app.use(fileUpload());
-        app.use(cors(corsOptions));
-        app.use(controllers);
-        app.use(cookieParser());
-        app.use(bodyParser.json());
-        app.use(bodyParser.urlencoded({extended: true}));
-        app.use(morgan('dev'));
-        app.listen(port, () => {
-            console.log(`Server is runnging on ${port} port.`)
-        })
-    } catch (err) {
-        console.log(err);
-    }
+    app.use(fileUpload());
+    app.use(cors(corsOptions));
+    app.use(controllers);
+    app.use(cookieParser());
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(morgan('dev'));
+    app.listen(port)
 }
 
 start();
