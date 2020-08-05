@@ -16,7 +16,7 @@
     "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
-    "express-fileupload": "^1.1.6",
+    "express-fileupload": "^1.1.9",
     "json2csv": "^4.5.4",
     "mongoose": "^5.9.3",
     "morgan": "^1.9.1",
